@@ -22,6 +22,8 @@ class Stack {
 
   pop() {
     const node = this.top;
+    if(node === null)
+      return null;
     this.top = node.next;
     return node.data;
   }
@@ -75,6 +77,24 @@ function is_palindrome(s) {
   }
   return true;
 }
+function matchingParentesis(exp){
+  const newStack = new Stack();
+  const pairs = { ')': '(', '}' :'{', ']' : '[', };
+  for(let i = 0; i < exp.length; i++){
+    if(exp[i] === '('|| exp[i] === '{'|| exp[i] === '['){
+      newStack.push(exp[i]);
+    } else if(exp[i] === ')'|| exp[i] === '}'|| exp[i] === ']'){
+      let top = newStack.pop();
+      if(top === null || pairs[exp[i]] !== top){
+        return i;
+      }
+    }
+  }
+  if(newStack.top !== null){
+    return exp.length;
+  }
+  return -1;
+}
 
 module.exports = {
   Stack,
@@ -82,5 +102,6 @@ module.exports = {
   isEmpty,
   display,
   displayR,
-  is_palindrome
+  is_palindrome,
+  matchingParentesis
 };

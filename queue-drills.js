@@ -102,4 +102,59 @@ const dancers = [
   }
 ];
 
-sortDancers(dancers);
+// sortDancers(dancers);
+
+// Drill #9: The Ophidian Bank
+
+function ophidianBankSim() {
+  //set up a fake queue
+  const line = new Queue();
+  //add a bunch of 'fake' people
+  line.enqueue('Bob');
+  line.enqueue('Robin');
+  line.enqueue('Alex');
+  line.enqueue('Ethan');
+  line.enqueue('Payman');
+  line.enqueue('Secil');
+  line.enqueue('Michael');
+  line.enqueue('Zol');
+  line.enqueue('Michael');
+  line.enqueue('Matt');
+  line.enqueue('David');
+  line.enqueue('Geordie');
+  line.enqueue('Daniel');
+  line.enqueue('Owen');
+  line.enqueue('Chris');
+  line.enqueue('Hunter');
+  line.enqueue('Ali');
+  line.enqueue('Andrew');
+  line.enqueue('william');
+  line.enqueue('Jon');
+  line.enqueue('Jake');
+  line.enqueue('Andre');
+  line.enqueue('Tauhida');
+  //now we're going to simulate, the service
+  let current = line.first;
+  let iteration = 0; //sets a limit to operation
+  while (current !== null && iteration < 40) {
+    const succeed = Math.random() < 0.75;
+    const person = line.dequeue();
+    if (succeed) {
+      console.log(`Ophidian Bank served ${person} successfully`);
+    } else {
+      console.log(`Ophidian bank was unable to serve ${person}`);
+      line.enqueue(person);
+    }
+    current = current.next;
+    iteration++;
+  }
+  let numLeft = 0;
+  let counter = line.first;
+  while (counter !== null) {
+    numLeft++;
+    counter = counter.next;
+  }
+  console.log(`There are ${numLeft} people left to serve`);
+}
+
+ophidianBankSim();

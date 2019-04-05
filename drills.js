@@ -10,6 +10,9 @@ function stackTest() {
   stack.push('McCoy');
   stack.push('Scotty');
   stack.push('Sulu');
+  stack.pop();
+  stack.pop();
+  stack.pop();
   displayR(stack);
 }
 

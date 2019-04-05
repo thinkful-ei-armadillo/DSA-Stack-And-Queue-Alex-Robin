@@ -1,6 +1,4 @@
-const { Stack, 
-  peek, isEmpty, display, displayR, is_palindrome, sortStack, matchingParentesis} = require('./stack');
-
+const { Stack, peek, isEmpty, display, displayR, is_palindrome, sortStack, matchingParentesis} = require('./stack');
 //Drill 1: Create a stack class:
 
 function stackTest() {
@@ -24,4 +22,4 @@ function stackTest() {
   display(stack);
 }
 
-stackTest();
+// stackTest();

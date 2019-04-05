@@ -29,7 +29,6 @@ class Queue {
     if (this.first === null) {
       return;
     }
-
     const node = this.first;
     this.first = this.first.next;
     if (node === this.last) {
@@ -38,3 +37,21 @@ class Queue {
     return node.value;
   }
 }
+
+function peek(queue) {
+  return queue.first.value;
+}
+
+function isEmpty(queue) {
+  return !queue.first;
+}
+
+function display(queue) {
+  let current = queue.first;
+  while (current !== null) {
+    console.log(current.value);
+    current = current.next;
+  }
+}
+
+module.exports = { Queue, peek, isEmpty, display };

@@ -1,4 +1,4 @@
-const { Queue, peek, isEmpty, display } = require('./queue');
+const { DoubleQueue, Queue, peek, isEmpty, display } = require('./queue');
 
 // Drill #6 
 function queueTest() {
@@ -10,7 +10,16 @@ function queueTest() {
   queue.enqueue('Checkov');
   queue.dequeue();
   queue.dequeue();
-  display(queue);
+  // display(queue);
+  let doubleQueue = new DoubleQueue();
+  doubleQueue.enqueue('Kirk');
+  doubleQueue.enqueue('Spock');
+  doubleQueue.enqueue('Uhura');
+  doubleQueue.enqueue('Sulu');
+  console.log(doubleQueue.first.value)
+
+
+
 }
 
 queueTest();

@@ -4,7 +4,7 @@ const { Stack,
 //Drill 1: Create a stack class:
 
 function stackTest() {
-  const stack = new Stack();
+  let stack = new Stack();
   stack.push('Spock');
   stack.push('McCoy');
   stack.push('Scotty');
@@ -14,13 +14,13 @@ function stackTest() {
   // stack.pop();
   // stack.pop();
   // displayR(stack);
-  console.log(is_palindrome('madam'));
-  console.log(is_palindrome('madffam'));
-  console.log(matchingParentesis('hii(df)'))
-  console.log(matchingParentesis('(())()()))()()'))
-  console.log('[{( correct', matchingParentesis('([]){}'))
-  console.log('[{( wrong', matchingParentesis('([]}){}'))
-  sortStack(stack);
+  // console.log(is_palindrome('madam'));
+  // console.log(is_palindrome('madffam'));
+  // console.log(matchingParentesis('hii(df)'))
+  // console.log(matchingParentesis('(())()()))()()'))
+  // console.log('[{( correct', matchingParentesis('([]){}'))
+  // console.log('[{( wrong', matchingParentesis('([]}){}'))
+  stack = sortStack(stack);
   display(stack);
 }
 

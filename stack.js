@@ -54,7 +54,7 @@ function displayR(stack, node = stack.top) {
   }
 }
 function is_palindrome(s) {
-  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
   let firstHalf;
   let secondHalf;
   if(s.length % 2 === 0){
@@ -77,10 +77,16 @@ function is_palindrome(s) {
 }
 function matchingParentesis(exp){
   const newStack = new Stack();
-  const pairs = { ')': '(', '}' :'{', ']' : '[', };
+  const pairs = { 
+    ')':'(', 
+    '}':'{', 
+    ']':'[', 
+  };
   for(let i = 0; i < exp.length; i++){
+    //if opening bracket, we push it to the stack.
     if(exp[i] === '('|| exp[i] === '{'|| exp[i] === '['){
       newStack.push(exp[i]);
+    //if closing bracket, we see if there's a corresponding opening bracket at the top of the stack
     } else if(exp[i] === ')'|| exp[i] === '}'|| exp[i] === ']'){
       if(isEmpty(newStack) || pairs[exp[i]] !== newStack.pop()){
         return i;
@@ -92,17 +98,17 @@ function matchingParentesis(exp){
   }
   return -1;
 }
+
 function sortStack(stack){
-  const newStack = new Stack();
-  while(stack.top !== null){
-    let currentNode = stack.pop();
-    if(newStack.data > stack.data){
-      stack.push(newStack.pop());
+  const tempStack = new Stack();
+  while (!isEmpty(stack)) {
+    const temp = stack.pop();
+    while (!isEmpty(tempStack) && tempStack.top.data < temp) {
+      stack.push(tempStack.pop());
     }
-    newStack.push(currentNode);
+    tempStack.push(temp);
   }
-  while(newStack.top !== null)
-    stack.push(newStack.pop());
+  return tempStack;
 }
 
 module.exports = {

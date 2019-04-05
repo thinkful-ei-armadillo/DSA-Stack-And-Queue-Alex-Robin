@@ -1,17 +1,18 @@
-class _Node {
+class D_Node {
   constructor(value, next, prev) {
     this.value = value;
     this.next = next;
     this.prev = prev;
   }
 }
+
 class DoubleQueue{
   constructor(){
     this.first = null;
     this.last = null;
   }
   enqueue(data){
-    const node = new _Node(data, null, null);
+    const node = new D_Node(data, null, null);
 
     if(this.first === null){
       this.first = node;
@@ -34,9 +35,15 @@ class DoubleQueue{
     }
     return node.value;
   }
-
-
 }
+
+class _Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 class Queue {
   constructor() {
     this.first = null;
@@ -45,15 +52,12 @@ class Queue {
 
   enqueue(data) {
     const node = new _Node(data);
-
     if (this.first === null) {
       this.first = node;
     }
-
     if (this.last) {
       this.last.next = node;
     }
-
     this.last = node;
   }
 

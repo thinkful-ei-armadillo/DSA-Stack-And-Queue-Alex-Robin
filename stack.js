@@ -53,11 +53,34 @@ function displayR(stack, node = stack.top) {
     displayR(stack, node.next);
   }
 }
+function is_palindrome(s) {
+  s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  let firstHalf;
+  let secondHalf;
+  if(s.length % 2 === 0){
+    firstHalf = s.slice(0, s.length/2);
+    secondHalf = s.slice(s.length/2);
+  } else{
+    firstHalf = s.slice(0, Math.floor(s.length/2));
+    secondHalf = s.slice(Math.ceil(s.length/2));
+  }
+  const newStack = new Stack();
+
+  for(let i = 0; i < firstHalf.length; i++){
+    newStack.push(firstHalf[i]);
+  }
+  for(let i = 0; i < secondHalf.length; i++){
+    if(secondHalf[i] !== newStack.pop())
+      return false;
+  }
+  return true;
+}
 
 module.exports = {
   Stack,
   peek,
   isEmpty,
   display,
-  displayR
+  displayR,
+  is_palindrome
 };

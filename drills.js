@@ -1,5 +1,5 @@
 const { Stack, 
-  peek, isEmpty, display, displayR } = require('./stack');
+  peek, isEmpty, display, displayR, is_palindrome} = require('./stack');
 
 //Drill 1: Create a stack class:
 
@@ -14,6 +14,8 @@ function stackTest() {
   stack.pop();
   stack.pop();
   displayR(stack);
+  console.log(is_palindrome('madam'));
+  console.log(is_palindrome('madffam'));
 }
 
 stackTest();
